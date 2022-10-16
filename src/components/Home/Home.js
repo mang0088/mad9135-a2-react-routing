@@ -2,6 +2,17 @@ import React from 'react';
 import '../Home/Home.css';
 
 function Home({ weather }) {
+  function formatAMPM(Hourly) {
+    let newdate = new Date(Hourly * 1000);
+    let hours = newdate.getHours();
+    let minutes = newdate.getMinutes();
+    let ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    const strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
   return (
     <div className="box-container">
       {weather.main && (
@@ -27,8 +38,8 @@ function Home({ weather }) {
             </div>
             <div className="box-2">
               <div className="inbox-1">
-                <p>Sunrise: {weather.sys.sunrise}</p>
-                <p>Sunset: {weather.sys.sunset}</p>
+                <p>Sunrise: {formatAMPM(weather.sys.sunrise)}</p>
+                <p>Sunset: {formatAMPM(weather.sys.sunset)}</p>
               </div>
               <div className="inbox-2">
                 <p>longitude: {weather.coord.lon}</p>

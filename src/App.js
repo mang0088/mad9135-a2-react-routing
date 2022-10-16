@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+
 import Header from './components/Header/Header';
 
 import Navbar from './components/Navbar/Navbar';
@@ -15,8 +16,11 @@ import { FetchWeatherForecast } from './components/FetchWeatherForecast/FetchWea
 import Notfound from './components/Notfound/Notfound';
 import Instruction from './components/Instruction/Instruction';
 
+// import Loader from './components/Loader/Loader';
+
 function App() {
   const [city, setCity] = useState('');
+  // const [isLoading, setLoading] = useState(false);
   const [weather, setWeather] = useState({});
   const [hourlyweather, setHourlyWeather] = useState([]);
   const [dailyweather, setDailyWeather] = useState([]);
@@ -66,6 +70,7 @@ function App() {
         ></Route>
         <Route path="*" element={<Notfound />}></Route>
       </Routes>
+      {/* <Loader /> */}
     </div>
   );
 }
