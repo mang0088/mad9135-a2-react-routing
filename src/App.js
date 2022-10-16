@@ -9,7 +9,7 @@ import Home from './components/Home/Home';
 import Daily from './components/Daily/Daily';
 import Hourly from './components/Hourly/Hourly';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FetchWeather } from './components/FetchWeather/FetchWeather';
 
 import { FetchWeatherForecast } from './components/FetchWeatherForecast/FetchWeatherForecast';
@@ -44,6 +44,15 @@ function App() {
         });
     }
   };
+
+  useEffect(() => {
+    window.localStorage.setItem('CURRENT_WEATHER', JSON.stringify(weather));
+    window.localStorage.setItem(
+      'HOURLY_WEATHER',
+      JSON.stringify(hourlyweather)
+    );
+    window.localStorage.setItem('DAILY_WEATHER', JSON.stringify(dailyweather));
+  }, [weather, hourlyweather, dailyweather]);
 
   return (
     <div className="App">
