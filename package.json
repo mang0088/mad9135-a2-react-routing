@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "http://mang0088.github.io/mad9135-a2-react-routing",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
